@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="static/js/jquery-2.1.4.min.js"></script>
+  <script src="static/js/script.js"></script>
+    <script src="static/js/mui.min.js"></script>
+    <script src="static/js/login.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/graph.js"></script>
+  </head>
+  <body>
+    <div id="sidedrawer" class="mui--no-user-select">
+      <div id="sidedrawer-brand" class="mui--appbar-line-height">DBM</div>
+      <div>
+      <!-- 查找框样式问题 -->
+<!--         <div class="mui-textfield mui-textfield--float-label">
+          <input type="text">
+          <label>serarch</label>
+        </div> -->
+      </div>
+      <!-- <div class="mui-divider"></div> -->
+      <ul>
+        <li class="active">
+          <strong id="add" onclick="turnback();return false;"data-tip="db"><button class="mui-btn mui-btn--tiny mui-btn--primary">+</button>&nbsp;添加数据库</strong>
+<!--           <ul class="ul_open">
+            <li class="active"><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+          </ul> -->
+        </li>
+         <li class="active">
+          <strong data-tip="list" id="resource"  class="touchNone">我的资源</strong>
+          <div id ='resources'>
+
+          </div>
+      </ul>
+    </div>
+    <header id="header" class="header-shadow">
+      <div class="mui-appbar mui--appbar-line-height">
+      <!-- 左导航 -->
+
+        <table width="100%">
+          <tr style="vertical-align:middle;">
+            <td class="mui--appbar-height">
+              <div class="mui-container-fluid">
+                <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+                <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+                <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">UI演示页面</span>
+              </div>
+            </td>
+            <td class="mui--appbar-height" align="right">
+              <div class="mui-container-fluid tab-border">
+                <div class="mui-dropdown">
+                  <a id="appbar-more-vert" data-mui-toggle="dropdown" ><span>通知中心</span></a>
+                  <ul class="mui-dropdown__menu mui-dropdown__menu--right" style="top: 31px;">
+                    
+                    <li data-tip="share" id="share"><a href="#">广场</a></li>
+                  </ul>
+                </div>
+                <div class="mui-dropdown">
+                  <a id="appbar-more-vert" data-mui-toggle="dropdown" ><span>个人面板</span></a>
+                  <ul class="mui-dropdown__menu mui-dropdown__menu--right" style="top: 31px;">
+                    
+                    <li><a href="login.html">退出登陆</a></li>
+                    <li><a href="/docs/v1/getting-started/roadmap">Roadmap</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="mui--appbar-height"></div>
+      <div id="content" class="mui-container-fluid content-main-padding">
+        <br>
+        <h1>UI演示页面(简介)</h1>
+        <a href="https://www.muicss.com/docs/v1/css-js/boilerplate-html">
+        样式参考:https://www.muicss.com/docs/v1/css-js/boilerplate-html</a></br>
+        <a href="https://www.muicss.com/docs/v1/getting-started/colors">
+        配色参考:https://www.muicss.com/docs/v1/getting-started/colors</a>
+        <form>
+          <div id="outline">
+          <legend>添加数据库</legend>
+            <div class="mui-textfield mui-textfield--float-label">
+              <input id="host"type="text">
+              <label>Host</label>
+            </div>
+             <div class="mui-textfield mui-textfield--float-label">
+              <input id="dbname" type="text">
+              <label>Database Name</label>
+            </div>
+             <div class="mui-textfield mui-textfield--float-label">
+              <input id="dbport" type="text">
+              <label>Port</label>
+            </div>
+             <div class="mui-textfield mui-textfield--float-label">
+              <input id="username" type="text">
+              <label>Username</label>
+            </div>
+             <div class="mui-textfield mui-textfield--float-label">
+              <input id="pw" type="password">
+              <label>Password</label>
+            </div>
+            <button type="submit" onclick="add()" class="mui-btn mui-btn--raised">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+<!--     <footer id="footer">
+      <div class="mui-container-fluid">
+       
+      </div>
+    </footer> -->
+  </body>
+  <footer>
+<script>
+  $(document).ready(function(){
+    showResource(localStorage.getItem("uid"));
+  });
+  dbid = 0;
+  $('#resources').click(function (event) {
+    console.log(event.target);
+    location.hash = '#'+$(event.target).data('dbid');
+    dbid = $(event.target).data('dbid');
+    var contentURL = 'resource.html';
+    showContent(contentURL);
+  })
+ 
+</script>
+  </footer>
+</html>

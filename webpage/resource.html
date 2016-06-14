@@ -1,0 +1,62 @@
+<div id="frame">
+    <div id="dblist">
+        <div class="item">
+            <div class="wrapper">
+                <p id="host"></p>
+                <p id="dbname"></p>
+                <div class="mui-dropdown">
+                  <select id="showsheetlist" class="mui-btn mui-btn--primary">
+                    <option value="">数据表选择</option>
+
+                  </select>
+                </div>
+                <div class="mui-dropdown">
+                 <select id="graphtype" class="mui-btn mui-btn--primary" >
+                    <option value="">图表类型</option>
+                    <option value="0">离散点图</option>
+                    <option value="1">折线图</option>
+                    <option value="2">柱状图</option>
+                  </select>
+
+                </div>
+                <div class="mui-dropdown">
+                  <select id="x" class="mui-btn mui-btn--primary" >
+                    <option value="">X轴坐标</option>
+                    
+                  </select>
+                </div>
+               <div class="mui-dropdown">
+                  <select id="y" class="mui-btn mui-btn--primary" >
+                    <option value="">Y轴坐标</option>
+                    
+                  </select>
+                </div>
+                <div id="creategraph">
+                   <button id="draw" type="submit" class="mui-btn mui-btn--raised">生成图表</button>
+                </div><div id="sharegraphbutton">
+                   <button id="sharegraph" type="submit" class="mui-btn mui-btn--raised">分享图表</button>
+                </div>
+            </div>
+        </div>
+    </div><div id="chartlist">
+        <div id="graph">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+                var chart = new G2.Chart({
+                    id:'graph',
+                    width:800,
+                    height:400
+                });
+    getTables(localStorage.getItem("uid"),dbid);
+    $('#showsheetlist').change(function (event) {
+      run(this.options[this.options.selectedIndex].value);
+  })
+
+     $('#draw').click(function(event){
+      draw(localStorage.getItem("uid"),dbid,$('#showsheetlist').val(),$('#graphtype').val(),$('#x').val(),$('#y').val());
+    })
+   
+</script>

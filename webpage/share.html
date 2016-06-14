@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">    
+    <script src="static/js/jquery-2.1.4.min.js"></script>
+  <script src="static/js/script.js"></script>
+    <script src="static/js/mui.min.js"></script>
+    <script src="static/js/login.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/graph.js"></script>
+    <script src="static/js/share.js"></script>
+    <script src="static/js/Must.js"></script>
+  </head>
+  <body>
+    <div id="sidedrawer" class="mui--no-user-select">
+      <div id="sidedrawer-brand" class="mui--appbar-line-height">DBM</div>
+      <div>
+      <!-- 查找框样式问题 -->
+<!--         <div class="mui-textfield mui-textfield--float-label">
+          <input type="text">
+          <label>serarch</label>
+        </div> -->
+      </div>
+      <!-- <div class="mui-divider"></div> -->
+      <ul>
+        <li class="active">
+          <strong id="add" onclick="turnback();return false;"data-tip="db"><button class="mui-btn mui-btn--tiny mui-btn--primary">+</button>&nbsp;添加数据库</strong>
+<!--           <ul class="ul_open">
+            <li class="active"><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+          </ul> -->
+        </li>
+         <li class="active">
+          <strong data-tip="list" id="resource"  class="touchNone">我的资源</strong>
+          <div id ='resources'>
+
+          </div>
+      </ul>
+    </div>
+    <header id="header" class="header-shadow">
+      <div class="mui-appbar mui--appbar-line-height">
+      <!-- 左导航 -->
+
+        <table width="100%">
+          <tr style="vertical-align:middle;">
+            <td class="mui--appbar-height">
+              <div class="mui-container-fluid">
+                <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+                <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+                <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">UI演示页面</span>
+              </div>
+            </td>
+            <td class="mui--appbar-height" align="right">
+              <div class="mui-container-fluid tab-border">
+                <div class="mui-dropdown">
+                  <a id="appbar-more-vert" data-mui-toggle="dropdown" ><span>通知中心</span></a>
+                  <ul class="mui-dropdown__menu mui-dropdown__menu--right" style="top: 31px;">
+                    
+                    <li data-tip="share" id="share"><a href="#">广场</a></li>
+                  </ul>
+                </div>
+                <div class="mui-dropdown">
+                  <a id="appbar-more-vert" data-mui-toggle="dropdown" ><span>个人面板</span></a>
+                  <ul class="mui-dropdown__menu mui-dropdown__menu--right" style="top: 31px;">
+                    
+                    <li><a href="login.html">退出登陆</a></li>
+                    <li><a href="/docs/v1/getting-started/roadmap">Roadmap</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="mui--appbar-height"></div>
+      <div id="content" class="mui-container-fluid content-main-padding">
+            <!--
+                Major Content 
+            -->
+            <div id="posts_target" class="posts">
+            </div>
+              <script id="template" type="x-tmpl-mustache">
+                {{#result}}
+                <section class="post">
+                    <hr>
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="48" width="48" src="http://avatar.3sd.me/size"></img>
+                        <h2 class="post-title">{{title}}</h2>
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">{{userid}}</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                          <div id='graph_{{id}}'>
+                          </div>
+                        </p>
+                    </div>
+                </section>
+                {{/result}}
+            </script> 
+      </div>
+    </div>
+<!--     <footer id="footer">
+      <div class="mui-container-fluid">
+       
+      </div>
+    </footer> -->
+  </body>
+  <footer>
+<script>
+  $(document).ready(function(){
+    queryPosts();
+  });
+</script>
+</script>
+  </footer>
+</html>
