@@ -28,7 +28,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1 !^(visualizer/index\.php)
 RewriteRule ^(.*)$ /visualizer/index.php/$1 [L]  
 ```
-3.  Open your browser and type: 127.0.0.1/webpage/index.html
+3. Open your browser and type: 127.0.0.1/webpage/index.html
 
 # Version
 
@@ -37,11 +37,15 @@ Currently the version is 0.000000001 alpha. The function is very simple and easy
 # Contributor
 
 @stevefermi
+
 @cyy
 
 # Special Thanks
 
 Alipay G2 : https://g2.alipay.com/
+
 phpRS : https://github.com/caoym/phprs-restful
+
 ezSQL : https://github.com/caoym/ezsql
+
 Mustache.js : https://github.com/janl/mustache.js
